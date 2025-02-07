@@ -69,3 +69,23 @@ class PaymentInitiationSerializer(serializers.Serializer):
         if value <= 0:
             raise serializers.ValidationError("Le montant doit être supérieur à zéro.")
         return value
+
+
+
+class RefundSerializer(serializers.Serializer):
+    """Serialiseur pour les demandes de remboursement"""
+    reason = serializers.CharField(
+        required=False, 
+        allow_blank=True, 
+        max_length=255
+    )
+    
+    def validate_reason(self, value):
+        """
+        Validation personnalisée de la raison de remboursement
+        """
+        if value and len(value) < 3:
+            raise serializers.ValidationError(
+                "La raison du remboursement doit contenir au moins 3 caractères."
+            )
+        return value

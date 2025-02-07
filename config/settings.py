@@ -129,30 +129,30 @@ REST_FRAMEWORK = {
     ]
 }            
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'payments_webhook': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': '/path/to/logs/payments_webhook.log',
-        },
-    },
-    'loggers': {
-        'payments_webhook': {
-            'handlers': ['payments_webhook'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'payments_webhook': {
+#             'level': 'INFO',
+#             'class': 'logging.FileHandler',
+#             'filename': '/path/to/logs/payments_webhook.log',
+#         },
+#     },
+#     'loggers': {
+#         'payments_webhook': {
+#             'handlers': ['payments_webhook'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 
 #CONFIGURATION DE FLUTTERWAVE POUR LES PAIEMENTS EN LIGNES 
 
 FLUTTERWAVE_PUBLIC_KEY = decouple_config('FLUTTERWAVE_PUBLIC_KEY')
-FLUTTERWAVE_SECRET_KEY = decouple_config('FLUTTERWAVE_PUBLIC_KEY')
-FLUTTERWAVE_ENCRYPTION_KEY = decouple_config('FLUTTERWAVE_PUBLIC_KEY')
-FLUTTERWAVE_BASE_URL = decouple_config('FLUTTERWAVE_PUBLIC_KEY')
+FLUTTERWAVE_SECRET_KEY = decouple_config('FLUTTERWAVE_SECRET_KEY')
+FLUTTERWAVE_ENCRYPTION_KEY = decouple_config('FLUTTERWAVE_ENCRYPTION_KEY')
+FLUTTERWAVE_BASE_URL = decouple_config('FLUTTERWAVE_BASE_URL')
 FLUTTERWAVE_REDIRECT_URL = decouple_config('FLUTTERWAVE_PUBLIC_KEY')
